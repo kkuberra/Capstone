@@ -1,6 +1,5 @@
 import React from 'react';
 import { StyleSheet, Text, View, Button, ImageBackground, styles, } from 'react-native';
-// import HomeView from './components/HomeView';
 import { Actions } from
 
 'react-native-router-flux';
