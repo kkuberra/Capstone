@@ -6,6 +6,7 @@ import { Router, Stack, Scene } from
 import Home from "./components/Home";
 import Teams from "./components/Teams";
 import Players from './components/Players'
+import Stats from './components/Stats'
 
 
 export default class App extends React.Component {
@@ -20,6 +21,8 @@ export default class App extends React.Component {
       <Scene key="home" component={Home}/>
       <Scene key="Teams" component={Teams} title="Teams"/>
       <Scene key="players" component={Players} title="Players"/>
+      <Scene key="stats" component={Stats} title="Stats"/>
+
       {/* <Scene key="register" component={Register} title="Register"/> */}
     </Stack>
   </Router>
