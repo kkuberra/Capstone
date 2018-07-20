@@ -1,6 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
-import { Container, Header, Content, List, ListItem, Text, Form, Thumbnail, Left, Body } from 'native-base';
+import { Container, Header, Content, List, ListItem, Text, Form, Thumbnail, Left, Body, } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
 class Players extends React.Component {
@@ -34,7 +34,7 @@ class Players extends React.Component {
             <List 
                 dataArray={this.state.players}
                 renderRow={(player) =>
-                    <ListItem thumbnail onPress ={() => Actions.stats({Player: player})}>
+                    <ListItem style={{ height:90 }} thumbnail onPress ={() => Actions.stats({Player: player})}>
                         <Left>
                             <Thumbnail square source={{uri: player.PhotoUrl}} />
                         </Left>

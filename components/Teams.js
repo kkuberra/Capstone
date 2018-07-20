@@ -2,7 +2,7 @@ import React from 'react';
 import { StyleSheet, View, Button, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import { Container, Header, Content, List, ListItem, Text, Picker, Form, Thumbnail, Left, Body } from 'native-base';
-
+import SvgUri from 'react-native-svg-uri';
 
 export default class Teams extends
 React.Component {
@@ -28,6 +28,21 @@ getTeams = () => {
 componentDidMount (){
     this.getTeams ()
 }
+
+getThumbnail (url){
+    if (url.endsWith(".svg")){
+        return <SvgUri
+      width="20"
+      height="20"
+      source={{uri:url}}
+    />
+    }
+    else {
+        return <Thumbnail square source={{uri:url}} />
+
+    }
+}
+
     render() {
         return (
                 <List 
@@ -35,7 +50,7 @@ componentDidMount (){
                     renderRow={(team) =>
                         <ListItem thumbnail onPress={() => Actions.players({teamName: team.Key})}>
                             <Left>
-                                <Thumbnail square source={{uri: team.WikipediaLogoUrl}} />
+                            {this.getThumbnail(team.WikipediaLogoUrl)}
                             </Left>
                             <Body>
                                 <Text>{team.Name}</Text>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, ImageBackground, styles, Image } from 'react-native';
-import { Container, Header, Content, Button } from 'native-base';
+import { Container, Header, Content, Button, Title } from 'native-base';
 import { Actions } from
 
 'react-native-router-flux';
@@ -29,6 +29,7 @@ React.Component {
                         }}
                         /> */}
                 {/* </View> */}
+                
             </ImageBackground>
                
               
