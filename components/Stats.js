@@ -1,13 +1,14 @@
 import React from 'react'
 import { Text, View, Dimensions } from 'react-native'
-import { Container, Header, Content, List, ListItem, Form } from 'native-base';
+import { Container, Header, Content, List, ListItem, Left, Form, Body, Thumbnail, Card,
+  CardItem } from 'native-base';
 // import { Bar } from 'react-native-pathjs-charts'
 // import { Radar } from "react-chartjs";
 import { PieChart } from 'react-native-svg-charts'
 
 export default class PieChartWithDynamicSlices extends React.PureComponent {
     state = {
-        stats: [],
+        stats: null,
         selectedSlice: {
             value: "",
             label: ""
@@ -30,12 +31,24 @@ export default class PieChartWithDynamicSlices extends React.PureComponent {
         this.getStats()
     }
     render() {
-        
+        const {stats} = this.state
+        if (!stats){
+            return null;
+        }
+
+    
+
     const { labelWidth, selectedSlice } = this.state;
     const { label, value } = selectedSlice;
-    const keys = ['google', 'facebook', 'linkedin', 'youtube', 'Twitter'];
-    const values = [15, 25, 35, 45, 55];
-    const colors = ['#600080', '#9900cc', '#c61aff', '#d966ff', '#ecb3ff']
+    const keys = ['Assists %', 'Turn Over %', 'Three Pointers %', 'Two Pointers %', 'Field Goals %'];
+    const values = [
+        stats.AssistsPercentage,
+        stats.TurnOversPercentage,
+        stats.ThreePointersPercentage,
+        stats.TwoPointersPercentage,
+        stats.FieldGoalsPercentage
+    ];
+    const colors = ['#004358', '#1F8A70', '#BEDB39', '#FFE11A', '#FD7400']
     const data = keys.map((key, index) => {
         return {
           key,
@@ -47,29 +60,53 @@ export default class PieChartWithDynamicSlices extends React.PureComponent {
       })
     const deviceWidth = Dimensions.get('window').width
       console.log(data)
-    return (
-      <View style={{ justifyContent: 'center', flex: 1 }}>
+      const {Player} = this.props
+      
+      return (
+          < View style = {
+              {
+                //   flex: 1,
+                //   flexDirection: 'row',
+                  justifyContent: 'center',
+                //   alignItems: 'center',
+              }
+          } >
+          
+   
+        
+        <Text style={{ marginTop:45, marginLeft:100, marginBottom:50, fontSize: 25 }}><Thumbnail style={{ height:90 }} square source={{uri: Player.PhotoUrl}} />{Player.FirstName}  {Player.LastName}</Text>
+     
         <PieChart
-          style={{ height: 200 }}
+          style={{ height: 300 }}
           outerRadius={'80%'}
           innerRadius={'45%'}
           data={data}
         />
+            
         <Text
           onLayout={({ nativeEvent: { layout: { width } } }) => {
             this.setState({ labelWidth: width });
           }}
           style={{
-            position: 'absolute',
+            // position: 'center',
             left: deviceWidth / 2 - labelWidth / 2,
-            textAlign: 'center'
+            textAlign: 'center',
+            fontSize: 25,
+            marginBottom: 100
           }}>
           {`${label} \n ${value}`}
         </Text>
-      </View>
+    
+   
+    
+    </View>
+
     )
-  }
-}
+      };  
+      
+      
+    }
+
 
 
 

@@ -32,8 +32,10 @@ componentDidMount (){
 getThumbnail (url){
     if (url.endsWith(".svg")){
         return <SvgUri
-      width="20"
-      height="20"
+      
+      width="50"
+      height="50"
+      
       source={{uri:url}}
     />
     }
@@ -48,10 +50,10 @@ getThumbnail (url){
                 <List 
                     dataArray={this.state.teams}
                     renderRow={(team) =>
-                        <ListItem thumbnail onPress={() => Actions.players({teamName: team.Key})}>
-                            <Left>
+                        <ListItem style={{ height:90 }} thumbnail onPress={() => Actions.players({teamName: team.Key})}>
+                            <Left style={{ display:"flex", justifyContent:"center", alignItems:"center", width:50, height:50 }}>
                             {this.getThumbnail(team.WikipediaLogoUrl)}
-                            </Left>
+                            </Left> 
                             <Body>
                                 <Text>{team.Name}</Text>
                             </Body>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Footer } from 'react-native';
 import { Router, Stack, Scene } from
 'react-native-router-flux';
 
@@ -15,6 +15,7 @@ export default class App extends React.Component {
       // <View style={styles.container}>
       //           <HomeView />
       //       </View>
+
     return (
   <Router>
     <Stack key="root">
@@ -22,9 +23,9 @@ export default class App extends React.Component {
       <Scene key="Teams" component={Teams} title="Teams"/>
       <Scene key="players" component={Players} title="Players"/>
       <Scene key="stats" component={Stats} title="Stats"/>
-
       {/* <Scene key="register" component={Register} title="Register"/> */}
     </Stack>
+      
   </Router>
 );
 

@@ -31,6 +31,8 @@ class Players extends React.Component {
     }
     render() {
         return (
+            
+
             <List 
                 dataArray={this.state.players}
                 renderRow={(player) =>
@@ -42,6 +44,7 @@ class Players extends React.Component {
                             <Text>{player.FirstName}  {player.LastName}</Text>
                         </Body>
                     </ListItem>
+ 
                 } 
             />
         )
