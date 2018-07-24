@@ -1,23 +1,49 @@
 import React from 'react'
 import { Text, View, Dimensions } from 'react-native'
-import { Container, Header, Content, List, ListItem, Left, Form, Body, Thumbnail, Card,
-  CardItem } from 'native-base';
-// import { Bar } from 'react-native-pathjs-charts'
-// import { Radar } from "react-chartjs";
+import { Container, Header, Content, List, ListItem, Left, Form, Body, Thumbnail, Button } from 'native-base';
 import { PieChart } from 'react-native-svg-charts'
+import { Actions } from 'react-native-router-flux'
+
+const favoritesURL = 'http://localhost:3000/api/v1/favorites'
 
 export default class PieChartWithDynamicSlices extends React.PureComponent {
-    state = {
-        stats: null,
-        selectedSlice: {
-            value: "",
-            label: ""
-        },
-
+    constructor(props) {
+        super(props)
+        this.state = {
+            stats: null,
+            selectedSlice: {
+                value: "",
+                label: ""
+            },
+        }
     }
 
+    addAndRedirect() {
+        fetch(favoritesURL, {
+                method: 'POST',
+                body: JSON.stringify({
+                    name: this.props.Player.FirstName + ' ' + this.props.Player.LastName,
+                    player_id: this.props.Player.PlayerID,
+                    image_url: this.props.Player.PhotoUrl
+                }),
+                headers: new Headers({
+                    "Content-Type": "application/json"
+                })
+            })
+            .then(res => res.json())
+            // .then(res => {
+            //     let updatedFavorites = this.state.favorites
+            //     updatedFavorites.push(res)
+            //     this.setState({
+            //         favorites: updatedFavorites
+            //     })
+            // })
+            .then(Actions.favorites())
+    }
+    
+
     getStats = () => {
-        return fetch("https://api.fantasydata.net/v3/nba/stats/JSON/PlayerSeasonStatsByPlayer/2018/20000534", {
+        return fetch("https://api.fantasydata.net/v3/nba/stats/JSON/PlayerSeasonStatsByPlayer/2018/" + this.props.Player/ {
             headers: {
                 "Ocp-Apim-Subscription-Key": "7ab4f60ab975432aa99aa6d398b1fe2b"
             }
@@ -30,6 +56,7 @@ export default class PieChartWithDynamicSlices extends React.PureComponent {
     componentDidMount() {
         this.getStats()
     }
+    
     render() {
         const {stats} = this.state
         if (!stats){
@@ -59,9 +86,8 @@ export default class PieChartWithDynamicSlices extends React.PureComponent {
         }
       })
     const deviceWidth = Dimensions.get('window').width
-      console.log(data)
-      const {Player} = this.props
-      
+      console.log(this.props)
+      const Player = this.props.Player 
       return (
           < View style = {
               {
@@ -74,10 +100,10 @@ export default class PieChartWithDynamicSlices extends React.PureComponent {
           
    
         
-        <Text style={{ marginTop:45, marginLeft:100, marginBottom:50, fontSize: 25 }}><Thumbnail style={{ height:90 }} square source={{uri: Player.PhotoUrl}} />{Player.FirstName}  {Player.LastName}</Text>
+        <Text style={{ marginTop:25, marginLeft:100, marginBottom:50, fontSize: 25 }}><Thumbnail style={{ height:90 }} square source={{uri: Player.PhotoUrl}} />{Player.FirstName}  {Player.LastName}</Text>
      
         <PieChart
-          style={{ height: 300 }}
+          style={{ height: '25%' }}
           outerRadius={'80%'}
           innerRadius={'45%'}
           data={data}
@@ -96,20 +122,20 @@ export default class PieChartWithDynamicSlices extends React.PureComponent {
           }}>
           {`${label} \n ${value}`}
         </Text>
-    
-   
-    
+    <View style = {
+                    {
+                        flex: 1,
+                        flexDirection: 'row',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        // marginTop: 100
+                    }
+                }>
+                <Button onPress = {() => this.addAndRedirect()} rounded style={{ padding: 20, height: 55 }}> <Text style={{ fontSize: 20, color: 'white' }}> Add to Favorites </Text> </Button>
+                </View>
     </View>
+    
+            )
 
-    )
-      };  
-      
-      
-    }
-
-
-
-
-
-// export default PieChartWithDynamicSlices;
-// export default Stats;
+    };  
+}

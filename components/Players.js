@@ -9,30 +9,33 @@ class Players extends React.Component {
         this.state = {
             players: [],
         }
-        this.getPlayers = this.getPlayers.bind(this)
     }
     
-
     getPlayers = () => {
         const playersURL = "https://api.fantasydata.net/v3/nba/stats/JSON/Players/" + this.props.teamName
         console.log(playersURL)
         return fetch(playersURL, {
-            headers: {
-                "Ocp-Apim-Subscription-Key": "7ab4f60ab975432aa99aa6d398b1fe2b"
-            }
-        })
-        .then(results => results.json())
-        .then(data => this.setState({
-            players: data
-        }))
+                headers: {
+                    "Ocp-Apim-Subscription-Key": "7ab4f60ab975432aa99aa6d398b1fe2b"
+                }
+            })
+            .then(results => results.json())
+            .then(res => {
+                console.log(res)
+                return res
+            })
+            .then(data => this.setState({
+                players: data
+            }))
     }
+
+    
     componentDidMount() {
         this.getPlayers()
+        console.log(this.state.players)
     }
     render() {
         return (
-            
-
             <List 
                 dataArray={this.state.players}
                 renderRow={(player) =>

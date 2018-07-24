@@ -51,7 +51,7 @@ getThumbnail (url){
                     dataArray={this.state.teams}
                     renderRow={(team) =>
                         <ListItem style={{ height:90 }} thumbnail onPress={() => Actions.players({teamName: team.Key})}>
-                            <Left style={{ display:"flex", justifyContent:"center", alignItems:"center", width:50, height:50 }}>
+                            <Left style={{ display:"flex", justifyContent:"center", alignItems:"center", width:50, height:60 }}>
                             {this.getThumbnail(team.WikipediaLogoUrl)}
                             </Left> 
                             <Body>
