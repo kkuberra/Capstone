@@ -42,7 +42,7 @@ export default class App extends React.Component {
       <Scene key="Teams" component={Teams} title="Teams"/>
       <Scene key="players" component={Players} title="Players"/>
       <Scene key="stats" component={Stats} title="Stats"/>
-      <Scene key="Favorites" component={Favorites} title="Favorites"/>
+      <Scene key="favorites" component={Favorites} title="Favorites"/>
       {/* <Scene key="register" component={Register} title="Register"/> */}
     </Stack>
       

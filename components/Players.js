@@ -13,10 +13,9 @@ class Players extends React.Component {
     
     getPlayers = () => {
         const playersURL = "https://api.fantasydata.net/v3/nba/stats/JSON/Players/" + this.props.teamName
-        console.log(playersURL)
         return fetch(playersURL, {
                 headers: {
-                    "Ocp-Apim-Subscription-Key": "7ab4f60ab975432aa99aa6d398b1fe2b"
+                    "Ocp-Apim-Subscription-Key": "7ba0c58a0e54460b9e35780294afd534"
                 }
             })
             .then(results => results.json())

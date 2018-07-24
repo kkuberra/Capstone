@@ -17,7 +17,7 @@ state = {teams:[],
 getTeams = () => {
         return fetch("https://api.fantasydata.net/v3/nba/stats/json/teams", {
             headers: {
-                "Ocp-Apim-Subscription-Key": "7ab4f60ab975432aa99aa6d398b1fe2b"
+                "Ocp-Apim-Subscription-Key": "7ba0c58a0e54460b9e35780294afd534"
             }
         })
         .then (results => results.json())
@@ -29,13 +29,11 @@ componentDidMount (){
     this.getTeams ()
 }
 
-getThumbnail (url){
+getThumbnail(url){
     if (url.endsWith(".svg")){
         return <SvgUri
-      
       width="50"
       height="50"
-      
       source={{uri:url}}
     />
     }

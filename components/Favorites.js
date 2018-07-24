@@ -22,13 +22,30 @@ class Favorites extends React.Component{
     })
     }
 
+redirectToPlayer = (favorite) => {
+    Actions.stats({Player:
+        {
+            id: favorite.id,
+            PlayerID:favorite.player_id,
+            FirstName:favorite.name,
+            LastName:'',
+            PhotoUrl: favorite.image_url
+    
+        },
+    favorited:true
+    })
+        
+
+}
+
     render() {
         return (
             <List 
                 dataArray={this.state.favorites}
                 renderRow={(favorite) => {
+                    console.log(favorite)
                     return (
-                        <ListItem style={{ height:90 }} thumbnail onPress ={() => Actions.stats({Player: favorite})}>
+                        <ListItem style={{ height:90 }} thumbnail onPress ={() => this.redirectToPlayer(favorite)}>
                             <Left>
                                 <Thumbnail square source={{uri: favorite.image_url}} />
                             </Left>

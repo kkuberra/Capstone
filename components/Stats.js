@@ -4,7 +4,7 @@ import { Container, Header, Content, List, ListItem, Left, Form, Body, Thumbnail
 import { PieChart } from 'react-native-svg-charts'
 import { Actions } from 'react-native-router-flux'
 
-const favoritesURL = 'http://localhost:3000/api/v1/favorites'
+const favoritesURL = 'http://localhost:3000/api/v1/favorites/'
 
 export default class PieChartWithDynamicSlices extends React.PureComponent {
     constructor(props) {
@@ -16,6 +16,12 @@ export default class PieChartWithDynamicSlices extends React.PureComponent {
                 label: ""
             },
         }
+    }
+
+    removeAndRedirect = (id) => {
+        fetch(favoritesURL + id, {
+            method: "DELETE"
+        }).then(() => Actions.favorites())
     }
 
     addAndRedirect() {
@@ -38,14 +44,16 @@ export default class PieChartWithDynamicSlices extends React.PureComponent {
             //         favorites: updatedFavorites
             //     })
             // })
-            .then(Actions.favorites())
+            .then(() => {
+                Actions.favorites()
+            })
     }
     
 
     getStats = () => {
-        return fetch("https://api.fantasydata.net/v3/nba/stats/JSON/PlayerSeasonStatsByPlayer/2018/" + this.props.Player/ {
+        return fetch("https://api.fantasydata.net/v3/nba/stats/JSON/PlayerSeasonStatsByPlayer/2018/" + this.props.Player.PlayerID, {
             headers: {
-                "Ocp-Apim-Subscription-Key": "7ab4f60ab975432aa99aa6d398b1fe2b"
+                "Ocp-Apim-Subscription-Key": "7ba0c58a0e54460b9e35780294afd534"
             }
         })
         .then(results => results.json())
@@ -86,7 +94,6 @@ export default class PieChartWithDynamicSlices extends React.PureComponent {
         }
       })
     const deviceWidth = Dimensions.get('window').width
-      console.log(this.props)
       const Player = this.props.Player 
       return (
           < View style = {
@@ -131,7 +138,8 @@ export default class PieChartWithDynamicSlices extends React.PureComponent {
                         // marginTop: 100
                     }
                 }>
-                <Button onPress = {() => this.addAndRedirect()} rounded style={{ padding: 20, height: 55 }}> <Text style={{ fontSize: 20, color: 'white' }}> Add to Favorites </Text> </Button>
+                {this.props.favorited || <Button onPress = {() => this.addAndRedirect()} rounded style={{ padding: 20, height: 55 }}> <Text style={{ fontSize: 20, color: 'white' }}> Add to Favorites </Text> </Button>}
+                {!this.props.favorited || <Button onPress = {() => this.removeAndRedirect(this.props.Player.id)} rounded style={{ padding: 20, height: 55 }}> <Text style={{ fontSize: 20, color: 'white' }}> Remove from Favorites </Text> </Button>}
                 </View>
     </View>
     
