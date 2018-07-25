@@ -1,6 +1,6 @@
 import React from 'react'
 import { Text, View, Dimensions } from 'react-native'
-import { Container, Header, Content, List, ListItem, Left, Form, Body, Thumbnail, Button } from 'native-base';
+import { Thumbnail, Button } from 'native-base';
 import { PieChart } from 'react-native-svg-charts'
 import { Actions } from 'react-native-router-flux'
 
@@ -37,13 +37,6 @@ export default class PieChartWithDynamicSlices extends React.PureComponent {
                 })
             })
             .then(res => res.json())
-            // .then(res => {
-            //     let updatedFavorites = this.state.favorites
-            //     updatedFavorites.push(res)
-            //     this.setState({
-            //         favorites: updatedFavorites
-            //     })
-            // })
             .then(() => {
                 Actions.favorites()
             })

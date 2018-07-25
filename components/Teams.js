@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, View, Button, Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
-import { Container, Header, Content, List, ListItem, Text, Picker, Form, Thumbnail, Left, Body } from 'native-base';
+import { Container, Header, Content, List, ListItem, Text, Picker, Form, Thumbnail, Left, Right, Icon, Body } from 'native-base';
 import SvgUri from 'react-native-svg-uri';
 
 export default class Teams extends

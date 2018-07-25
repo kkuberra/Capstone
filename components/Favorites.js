@@ -3,6 +3,8 @@ import { View } from 'react-native'
 import { Container, Header, Content, List, ListItem, Text, Form, Thumbnail, Left, Body, } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
+const favoritesURL = 'https://jumpshotserver.herokuapp.com/api/v1/favorites'
+
 
 class Favorites extends React.Component{
     constructor(props) {
