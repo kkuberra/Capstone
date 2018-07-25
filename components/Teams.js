@@ -54,6 +54,9 @@ getThumbnail(url){
                             </Left> 
                             <Body>
                                 <Text>{team.Name}</Text>
+                                <Right style={{ marginRight:-250 }}>
+                            <Icon name="arrow-forward" />
+                        </Right>
                             </Body>
                         </ListItem>
                     } 

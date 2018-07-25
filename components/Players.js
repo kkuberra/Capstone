@@ -1,6 +1,6 @@
 import React from 'react'
 import { View } from 'react-native'
-import { Container, Header, Content, List, ListItem, Text, Form, Thumbnail, Left, Body, } from 'native-base';
+import { Icon, Container, Header, Content, List, ListItem, Text, Form, Thumbnail, Left, Right, Body, } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
 class Players extends React.Component {
@@ -44,6 +44,9 @@ class Players extends React.Component {
                         </Left>
                         <Body>
                             <Text>{player.FirstName}  {player.LastName}</Text>
+                        <Right style={{ marginRight:-250 }}>
+                            <Icon name="arrow-forward" />
+                        </Right>
                         </Body>
                     </ListItem>
  

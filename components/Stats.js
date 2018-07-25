@@ -4,7 +4,7 @@ import { Container, Header, Content, List, ListItem, Left, Form, Body, Thumbnail
 import { PieChart } from 'react-native-svg-charts'
 import { Actions } from 'react-native-router-flux'
 
-const favoritesURL = 'http://localhost:3000/api/v1/favorites/'
+const favoritesURL = 'https://jumpshotserver.herokuapp.com/api/v1/favorites'
 
 export default class PieChartWithDynamicSlices extends React.PureComponent {
     constructor(props) {
