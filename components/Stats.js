@@ -110,7 +110,7 @@ export default class PieChartWithDynamicSlices extends React.PureComponent {
         <Text style={{ marginTop:25, marginLeft:100, marginBottom:50, fontSize: 25 }}><Thumbnail style={{ height:90 }} square source={{uri: Player.PhotoUrl}} />{Player.FirstName}  {Player.LastName}</Text>
      
         <PieChart
-          style={{ height: '25%' }}
+          style={{ height: '40%' }}
           outerRadius={'80%'}
           innerRadius={'45%'}
           data={data}
@@ -138,8 +138,8 @@ export default class PieChartWithDynamicSlices extends React.PureComponent {
                         // marginTop: 100
                     }
                 }>
-                {this.props.favorited || <Button onPress = {() => this.addAndRedirect()} rounded style={{ padding: 20, height: 55 }}> <Text style={{ fontSize: 20, color: 'white' }}> Add to Favorites </Text> </Button>}
-                {!this.props.favorited || <Button onPress = {() => this.removeAndRedirect(this.props.Player.id)} rounded style={{ padding: 20, height: 55 }}> <Text style={{ fontSize: 20, color: 'white' }}> Remove from Favorites </Text> </Button>}
+                {this.props.favorited || <Button onPress = {() => this.addAndRedirect()} rounded style={{ padding: 20, height: 55, marginTop: -60 }}> <Text style={{ fontSize: 20, color: 'white' }}> Add to Favorites </Text> </Button>}
+                {!this.props.favorited || <Button onPress = {() => this.removeAndRedirect(this.props.Player.id)} rounded style={{ padding: 20, height: 55, marginTop: -60 }}> <Text style={{ fontSize: 20, color: 'white' }}> Remove from Favorites </Text> </Button>}
                 </View>
     </View>
     

@@ -11,10 +11,10 @@ React.Component {
     render() {
         return (
               <View>
-                <ImageBackground source={require('../hardwood.png')} style={{width: '100%', height: '60%', marginTop:90}}>
+                <ImageBackground source={require('../hardwood2.png')} style={{width: '100%', height: '60%', marginTop:90}}>
                     {/* <Text>Jump Shot</Text> */}
                     <View style={styles.buttonCon}>
-                    <Image source={require('../Jump.png')} style={styles.logo} /> 
+                    <Image source={require('../newJS.png')} style={styles.logo} /> 
                     </View>
                     <View style={styles.buttonCon}>
                         <Button onPress = {() => Actions.Teams()} rounded style={styles.buttons}> 
