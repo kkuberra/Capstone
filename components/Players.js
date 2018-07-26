@@ -20,7 +20,6 @@ class Players extends React.Component {
             })
             .then(results => results.json())
             .then(res => {
-                console.log(res)
                 return res
             })
             .then(data => this.setState({
@@ -31,7 +30,7 @@ class Players extends React.Component {
     
     componentDidMount() {
         this.getPlayers()
-        console.log(this.state.players)
+
     }
     render() {
         return (

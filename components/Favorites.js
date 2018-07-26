@@ -3,7 +3,7 @@ import { View } from 'react-native'
 import { Container, Header, Content, List, ListItem, Text, Form, Thumbnail, Left, Body, } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
-const favoritesURL = 'https://jumpshotserver.herokuapp.com/api/v1/favorites'
+const favoritesURL = 'https://jumpshotserver.herokuapp.com/api/v1/favorites/'
 
 
 class Favorites extends React.Component{
@@ -45,11 +45,11 @@ redirectToPlayer = (favorite) => {
             <List 
                 dataArray={this.state.favorites}
                 renderRow={(favorite) => {
-                    console.log(favorite)
+                    // console.log(favorite)
                     return (
                         <ListItem style={{ height:90 }} thumbnail onPress ={() => this.redirectToPlayer(favorite)}>
                             <Left>
-                                <Thumbnail square source={{uri: favorite.image_url}} />
+                                <Thumbnail square source={favorite.image_url ? {uri: favorite.image_url} : null} />
                             </Left>
                             <Body>
                                 <Text>{favorite.name}</Text>

@@ -4,7 +4,7 @@ import { Thumbnail, Button } from 'native-base';
 import { PieChart } from 'react-native-svg-charts'
 import { Actions } from 'react-native-router-flux'
 
-const favoritesURL = 'https://jumpshotserver.herokuapp.com/api/v1/favorites'
+const favoritesURL = 'https://jumpshotserver.herokuapp.com/api/v1/favorites/'
 
 export default class PieChartWithDynamicSlices extends React.PureComponent {
     constructor(props) {
@@ -19,6 +19,7 @@ export default class PieChartWithDynamicSlices extends React.PureComponent {
     }
 
     removeAndRedirect = (id) => {
+        console.log(id)
         fetch(favoritesURL + id, {
             method: "DELETE"
         }).then(() => Actions.favorites())
@@ -91,10 +92,7 @@ export default class PieChartWithDynamicSlices extends React.PureComponent {
       return (
           < View style = {
               {
-                //   flex: 1,
-                //   flexDirection: 'row',
-                  justifyContent: 'center',
-                //   alignItems: 'center',
+                  justifyContent: 'center'
               }
           } >
           
