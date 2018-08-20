@@ -1,6 +1,9 @@
 
 
 ## Jump Shot
+![site image](JumpShotDemo.mov)
+
+#About
 
 Jump Shot is full stack mobile app made with React Native,
 Native Base, and Expo. The backend was created with Node.JS, 
