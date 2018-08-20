@@ -1,8 +1,8 @@
 
 
 # Jump Shot
-[![Jump Shot Demo](//img.imgur.com/pZYQ7l1)]
-(http://www.youtube.com/watch?v=eAmfqdueXM8 "Jump Shot Demo")
+[![Jump Shot Demo](https://imgur.com/a/U4E8ldx.png)]
+(http://youtube.com/watch?v=eAmfqdueXM8 "Jump Shot Demo")
 
 ## About
 
