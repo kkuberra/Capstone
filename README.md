@@ -1,7 +1,10 @@
 
 
 # Jump Shot
-Jump Shot Demo(http://youtube.com/watch?v=eAmfqdueXM8)
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=YOUTUBE_eAmfqdueXM8
+" target="_blank"><img src="http://img.youtube.com/vi/eAmfqdueXM8/0.jpg" 
+alt="Jump Shot Demo" width="240" height="180" border="10" /></a>
+
 
 
 ## About
