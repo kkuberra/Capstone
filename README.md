@@ -1,7 +1,8 @@
 
 
 # Jump Shot
-(JumpShotDemo.mov)
+[![Jump Shot Demo](http://img.youtube.com/vi/eAmfqdueXM8/0.jpg)]
+(http://www.youtube.com/watch?v=eAmfqdueXM8 "Video Title")
 
 ## About
 
